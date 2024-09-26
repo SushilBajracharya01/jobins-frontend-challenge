@@ -36,7 +36,7 @@ export default function CountryStat({
           {({ countUpRef }) => (
             <div
               ref={countUpRef}
-              className={classNames("font-bold", {
+              className={classNames("font-bold min-w-[52px]", {
                 "text-red-500": !isPositive,
                 "text-green-400": isPositive,
               })}

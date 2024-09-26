@@ -8,7 +8,7 @@ import ValueLabelPair from "../atoms/ValueLabelPair";
  */
 export default function UserInfo() {
   return (
-    <div className="flex flex-col lg:flex-row gap-4">
+    <section className="flex flex-col lg:flex-row gap-4">
       <div className="flex gap-4 items-center justify-start flex-1 flex-col lg:flex-row">
         <BigAvatar />
 
@@ -27,7 +27,7 @@ export default function UserInfo() {
           PERSONAL INFORMATION
         </div>
 
-        <div className="text-gray-600 text-[13px] flex flex-col gap-2">
+        <div className="text-gray-600 text-[13px] flex flex-col gap-8 xl:gap-2">
           <PersonalInfo label={"Contact Number"} value={"(201) 555-0124"} />
           <PersonalInfo label={"Date of Birth"} value={"1 Jan, 1985"} />
           <PersonalInfo label={"Member Since"} value={"3 March, 2023"} />
@@ -47,12 +47,12 @@ export default function UserInfo() {
           </div>
         </div>
 
-        <div className="flex justify-between gap-2 flex-col xl:flex-row">
+        <div className="flex justify-between gap-2 flex-row flex-wrap">
           <ValueLabelPair value={150} label={"Total Orders"} />
           <ValueLabelPair value={140} label={"Total Completed"} />
           <ValueLabelPair value={10} label={"Canceled"} />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

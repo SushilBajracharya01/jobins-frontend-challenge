@@ -14,6 +14,7 @@ module.exports = {
         gray: {
           50: "#F5F5F5",
           100: "#F3F4F8",
+          150: "#E9E7FD",
           200: "#DBDADE",
           300: "#8B909A",
           500: "#4B465C",
@@ -24,6 +25,12 @@ module.exports = {
         },
         green: {
           400: "#1EB564",
+        },
+        blue: {
+          500: "#0F60FF",
+        },
+        yellow: {
+          500: "#FFC600",
         },
       },
       fontFamily: {

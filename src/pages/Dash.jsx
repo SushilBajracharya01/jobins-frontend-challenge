@@ -7,8 +7,7 @@ import TotalSales from "../components/@Dashboard/TotalSales";
 import AvatarIcon from "../assets/svgs/AvatarIcon";
 import TotalProfit from "../components/@Dashboard/TotalProfit";
 import CountryStats from "../components/@Dashboard/CountryStats";
-import UserInfo from "../components/@Dashboard/UserInfo";
-import DashCard from "../components/atoms/DashCard";
+import PersonalDash from "../components/@Dashboard/PersonalDash";
 
 /**
  *
@@ -26,17 +25,15 @@ export default function Dash() {
       </div>
 
       <div className="space-y-4">
-        <div className="flex gap-3 flex-wrap">
+        <section className="flex gap-3 flex-wrap">
           <TotalSales />
 
           <TotalProfit />
 
           <CountryStats />
-        </div>
+        </section>
 
-        <DashCard className={"pt-6 px-10"}>
-          <UserInfo />
-        </DashCard>
+        <PersonalDash />
       </div>
     </div>
   );
