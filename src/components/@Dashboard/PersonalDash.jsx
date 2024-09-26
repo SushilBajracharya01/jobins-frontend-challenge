@@ -1,7 +1,6 @@
-import dayjs from "dayjs";
 import classNames from "classnames";
+import format from "date-fns/format";
 import { useMemo, useState } from "react";
-import { DateRange } from "react-date-range";
 
 //
 import UserInfo from "./UserInfo";
@@ -18,7 +17,7 @@ import { formatNumber, getStatusClass } from "../../utils/helpers";
 
 //
 import SearchIcon from "../../assets/svgs/SearchIcon";
-import ChevronDown from "../../assets/svgs/ChevronDown";
+import DateRangeInput from "../molecules/DateRangeInput";
 
 const initialState = {
   status: "all",
@@ -34,13 +33,6 @@ const initialState = {
 export default function PersonalDash() {
   const [activeTab, setActiveTab] = useState("all-orders");
   const [filter, setFilter] = useState(initialState);
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    },
-  ]);
 
   const OrderColumn = useMemo(
     () => [
@@ -60,7 +52,7 @@ export default function PersonalDash() {
         accessorKey: "date",
         cell: (info) => {
           let date = new Date(info.getValue());
-          return <span>{dayjs(date).format("D MMMM, YYYY")}</span>;
+          return <span>{format(date, "d MMMM, yyyy")}</span>;
         },
       },
       {
@@ -138,18 +130,7 @@ export default function PersonalDash() {
 
         <div>
           <div className="rounded-[6px] bg-white px-4 py-2">
-            <button className="text-gray-300 font-medium text-[15px]">
-              <span className="flex gap-2">
-                Filter by date range <ChevronDown isColorRed={false} />
-              </span>
-            </button>
-
-            <DateRange
-              editableDateInputs={true}
-              onChange={(item) => setState([item.selection])}
-              moveRangeOnFirstSelection={false}
-              ranges={state}
-            />
+            <DateRangeInput />
           </div>
         </div>
       </section>
