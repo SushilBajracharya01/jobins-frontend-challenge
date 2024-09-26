@@ -4,8 +4,8 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

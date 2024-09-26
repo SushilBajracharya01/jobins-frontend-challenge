@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import classNames from "classnames";
 import { useMemo, useState } from "react";
+import { DateRange } from "react-date-range";
 
 //
 import UserInfo from "./UserInfo";
@@ -8,14 +9,14 @@ import UserInfo from "./UserInfo";
 //
 import DashCard from "../atoms/DashCard";
 import TableUI from "../molecules/TableUI";
+import SelectUI from "../molecules/SelectUI";
 import TableNavItem from "../atoms/TableNavItem";
 
 //
 import { ORDERS, TABLE_NAV_ITEMS, PRODUCT_STATUS } from "./_data";
+import { formatNumber, getStatusClass } from "../../utils/helpers";
 
 //
-import { formatNumber, getStatusClass } from "../../utils/helpers";
-import SelectUI from "../molecules/SelectUI";
 import SearchIcon from "../../assets/svgs/SearchIcon";
 import ChevronDown from "../../assets/svgs/ChevronDown";
 
@@ -33,6 +34,13 @@ const initialState = {
 export default function PersonalDash() {
   const [activeTab, setActiveTab] = useState("all-orders");
   const [filter, setFilter] = useState(initialState);
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: "selection",
+    },
+  ]);
 
   const OrderColumn = useMemo(
     () => [
@@ -135,6 +143,13 @@ export default function PersonalDash() {
                 Filter by date range <ChevronDown isColorRed={false} />
               </span>
             </button>
+
+            <DateRange
+              editableDateInputs={true}
+              onChange={(item) => setState([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={state}
+            />
           </div>
         </div>
       </section>
