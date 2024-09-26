@@ -1,4 +1,4 @@
-export default function ChevronDown() {
+export default function ChevronDown({ isColorRed = true }) {
   return (
     <svg
       width="20"
@@ -9,7 +9,7 @@ export default function ChevronDown() {
     >
       <path
         d="M5 8L10 13L15 8"
-        stroke="#EA5455"
+        stroke={isColorRed ? "#EA5455" : "#8B909A"}
         stroke-width="1.75"
         stroke-linecap="round"
         stroke-linejoin="round"

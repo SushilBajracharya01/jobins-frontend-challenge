@@ -120,3 +120,37 @@ export const ORDERS = [
     status: "Completed",
   },
 ];
+
+export const TABLE_NAV_ITEMS = [
+  {
+    label: "All Orders",
+    value: "all-orders",
+  },
+  {
+    label: "Completed",
+    value: "completed",
+  },
+  {
+    label: "Canceled",
+    value: "canceled",
+  },
+];
+
+export const PRODUCT_STATUS = [
+  {
+    label: "All",
+    value: "all",
+  },
+  {
+    label: "Pending",
+    value: "pending",
+  },
+  {
+    label: "Completed",
+    value: "completed",
+  },
+  {
+    label: "Canceled",
+    value: "canceled",
+  },
+];
