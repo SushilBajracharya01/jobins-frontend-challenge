@@ -22,14 +22,7 @@ function Nav({ title, link, Icon, minimize }) {
     >
       {({ isActive }) => (
         <>
-          {
-            <Icon
-              className={classNames({
-                "text-gray-600": isActive,
-                "text-gray-300": !isActive,
-              })}
-            />
-          }
+          {<Icon isActive={isActive} />}
           {!minimize && title}
         </>
       )}

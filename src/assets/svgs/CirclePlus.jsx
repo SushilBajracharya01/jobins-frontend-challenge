@@ -1,4 +1,4 @@
-export default function CirclePlus({ className }) {
+export default function CirclePlus({ className, isActive }) {
   return (
     <svg
       width="22"
@@ -12,7 +12,7 @@ export default function CirclePlus({ className }) {
         cx="11"
         cy="11"
         r="8.25"
-        stroke="#8B909A"
+        stroke={isActive ? "#23272E" : "#8B909A"}
         stroke-width="1.75"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -21,35 +21,35 @@ export default function CirclePlus({ className }) {
         cx="11"
         cy="11"
         r="8.25"
-        stroke="#8B909A"
+        stroke={isActive ? "#23272E" : "#8B909A"}
         stroke-width="1.75"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M8.25 11H13.75"
-        stroke="#8B909A"
+        stroke={isActive ? "#23272E" : "#8B909A"}
         stroke-width="1.75"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M8.25 11H13.75"
-        stroke="#8B909A"
+        stroke={isActive ? "#23272E" : "#8B909A"}
         stroke-width="1.75"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M11 8.25V13.75"
-        stroke="#8B909A"
+        stroke={isActive ? "#23272E" : "#8B909A"}
         stroke-width="1.75"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M11 8.25V13.75"
-        stroke="#8B909A"
+        stroke={isActive ? "#23272E" : "#8B909A"}
         stroke-width="1.75"
         stroke-linecap="round"
         stroke-linejoin="round"
