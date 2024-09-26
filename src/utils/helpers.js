@@ -18,3 +18,11 @@ export function getStatusClass(value) {
     return "text-red-500";
   }
 }
+
+export function slugToTitle(slug) {
+  return slug
+    .replace(/-/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
