@@ -16,7 +16,7 @@ import DashCardSubTitle from "../atoms/DashCardSubTitle";
  */
 export default function TotalSales() {
   return (
-    <DashCard className="pt-5 pb-7 pr-[52px] pl-[43px] flex justify-between min-h-[199px] gap-10">
+    <DashCard className="pt-5 pb-7 pr-[52px] pl-[43px] flex justify-between min-h-[199px] flex-col sm:flex-row gap-10  flex-1">
       <div className="flex justify-center items-center">
         <ChartIcon />
       </div>

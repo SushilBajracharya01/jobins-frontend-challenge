@@ -13,9 +13,10 @@ import CountUp from "react-countup";
  */
 export default function TotalProfit() {
   return (
-    <DashCard className="pt-[21px] px-[24px] pb-[24px] flex flex-col justify-between">
-      <div className="flex items-center justify-between gap-[22px]">
+    <DashCard className="pt-[21px] px-[24px] pb-[24px] flex flex-col justify-between flex-1">
+      <div className="flex flex-col sm:flex-row items-center md:items-start gap-[22px] flex-1 justify-center md:justify-start">
         <Yen />
+
         <div>
           <DashCardTitle>Total Profit</DashCardTitle>
           <DashCardSubTitle>Last 7 days</DashCardSubTitle>

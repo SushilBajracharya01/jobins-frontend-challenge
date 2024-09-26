@@ -6,6 +6,7 @@ import TotalSales from "../components/@Dashboard/TotalSales";
 //
 import AvatarIcon from "../assets/svgs/AvatarIcon";
 import TotalProfit from "../components/@Dashboard/TotalProfit";
+import CountryStats from "../components/@Dashboard/CountryStats";
 
 /**
  *
@@ -23,10 +24,12 @@ export default function Dash() {
       </div>
 
       <div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap">
           <TotalSales />
 
           <TotalProfit />
+
+          <CountryStats />
         </div>
       </div>
     </div>

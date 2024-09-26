@@ -6,7 +6,7 @@ export default function DashLayout() {
     <div className="flex">
       <SideMenu />
 
-      <main className="bg-gray-50 w-full h-screen py-2 px-[26px]">
+      <main className="bg-gray-50 w-full h-screen overflow-auto py-2 px-[26px]">
         <Outlet />
       </main>
     </div>
