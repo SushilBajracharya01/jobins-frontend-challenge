@@ -42,12 +42,12 @@ export default function TableUI({
                     })}
                   >
                     {header.isPlaceholder ? null : (
-                      <td className="py-4 px-5 text-gray-300 uppercase font-medium text-[13px]">
+                      <span className="py-4 px-5 text-gray-300 uppercase font-medium text-[13px]">
                         {flexRender(
                           header.column.columnDef.header,
                           header.getContext()
                         )}
-                      </td>
+                      </span>
                     )}
                   </th>
                 );

@@ -7,7 +7,7 @@ export default function Yen() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_9_2529)">
+      <g clipPath="url(#clip0_9_2529)">
         <path
           d="M35.2133 0H32.6178V43H35.2133C39.496 43 43 39.496 43 35.2133V7.7867C43 3.504 39.496 0 35.2133 0Z"
           fill="#EB931F"

@@ -7,9 +7,9 @@ export default function AvatarIcon() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_5_2163)">
+      <g clipPath="url(#clip0_5_2163)">
         <rect y="0.5" width="38" height="38" fill="#7367F0" />
-        <rect y="0.5" width="38" height="38" fill="white" fill-opacity="0.2" />
+        <rect y="0.5" width="38" height="38" fill="white" fillOpacity="0.2" />
       </g>
       <circle
         cx="31.762"
@@ -17,7 +17,7 @@ export default function AvatarIcon() {
         r="5"
         fill="#28C76F"
         stroke="white"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <defs>
         <clipPath id="clip0_5_2163">

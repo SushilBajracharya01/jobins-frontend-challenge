@@ -7,14 +7,14 @@ export default function BigAvatar() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_5_2331)">
+      <g clipPath="url(#clip0_5_2331)">
         <rect x="0.716309" width="71.4894" height="72" fill="#7367F0" />
         <rect
           x="0.716309"
           width="71.4894"
           height="72"
           fill="white"
-          fill-opacity="0.2"
+          fillOpacity="0.2"
         />
         <rect
           x="7.66669"
@@ -23,7 +23,7 @@ export default function BigAvatar() {
           height="58"
           rx="28.7943"
           fill="white"
-          fill-opacity="0.3"
+          fillOpacity="0.3"
         />
       </g>
       <defs>

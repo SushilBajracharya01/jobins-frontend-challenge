@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import format from "date-fns/format";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 //
 import UserInfo from "./UserInfo";
@@ -18,6 +18,9 @@ import { formatNumber, getStatusClass } from "../../utils/helpers";
 //
 import SearchIcon from "../../assets/svgs/SearchIcon";
 import DateRangeInput from "../molecules/DateRangeInput";
+import axios from "axios";
+import { callAPI } from "../../api/apiInstance";
+import { fetchOrders } from "../../api/mockAPI";
 
 const initialState = {
   status: "all",
@@ -33,6 +36,17 @@ const initialState = {
 export default function PersonalDash() {
   const [activeTab, setActiveTab] = useState("all-orders");
   const [filter, setFilter] = useState(initialState);
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function handleFetchOrders() {
+      console.log(await fetchOrders());
+    }
+    handleFetchOrders();
+  }, [filter]);
+
+  console.log(data, "data");
 
   const OrderColumn = useMemo(
     () => [

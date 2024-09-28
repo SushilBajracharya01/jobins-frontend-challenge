@@ -10,9 +10,9 @@ export default function ChevronUp() {
       <path
         d="M5 13L10 8L15 13"
         stroke="#28C76F"
-        stroke-width="1.75"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
+import "./api/mockAPI";
 
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";

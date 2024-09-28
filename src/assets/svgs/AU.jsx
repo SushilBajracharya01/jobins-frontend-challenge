@@ -7,7 +7,7 @@ export default function AU() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_5_2076)">
+      <g clipPath="url(#clip0_5_2076)">
         <mask
           id="mask0_5_2076"
           maskUnits="userSpaceOnUse"
@@ -107,7 +107,7 @@ export default function AU() {
                     d="M9.57508 -0.5625L9.57436 7.9375H20.9367V12.8958H9.57436L9.57508 21.3958H4.61393L4.6132 12.8958H-6.70398V7.9375H4.6132L4.61393 -0.5625H9.57508Z"
                     fill="#F50100"
                     stroke="#F7FCFF"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                   />
                 </g>
               </g>
@@ -169,7 +169,7 @@ export default function AU() {
             <path
               d="M37.3095 1.20837H-3.23213C-4.17101 1.20837 -4.93213 1.96949 -4.93213 2.90837V32.0917C-4.93213 33.0306 -4.17101 33.7917 -3.23213 33.7917H37.3095C38.2484 33.7917 39.0095 33.0306 39.0095 32.0917V2.90837C39.0095 1.96949 38.2484 1.20837 37.3095 1.20837Z"
               stroke="black"
-              stroke-opacity="0.1"
+              strokeOpacity="0.1"
             />
           </g>
         </g>

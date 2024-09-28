@@ -7,7 +7,7 @@ export default function BR() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_5_1616)">
+      <g clipPath="url(#clip0_5_1616)">
         <mask
           id="mask0_5_1616"
           maskUnits="userSpaceOnUse"
@@ -684,14 +684,14 @@ export default function BR() {
                   fill="black"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M16.8963 5.74744L34.1823 17.794L16.6612 29.076L-0.27063 17.5605L16.8963 5.74744Z"
                   fill="#FFD221"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M16.8963 5.74744L34.1823 17.794L16.6612 29.076L-0.27063 17.5605L16.8963 5.74744Z"
                   fill="url(#paint0_linear_5_1616)"
                 />
@@ -909,7 +909,7 @@ export default function BR() {
             <path
               d="M37.2584 1.20837H-3.25825C-4.19714 1.20837 -4.95825 1.96949 -4.95825 2.90837V32.0917C-4.95825 33.0306 -4.19714 33.7917 -3.25825 33.7917H37.2584C38.1973 33.7917 38.9584 33.0306 38.9584 32.0917V2.90837C38.9584 1.96949 38.1973 1.20837 37.2584 1.20837Z"
               stroke="black"
-              stroke-opacity="0.1"
+              strokeOpacity="0.1"
             />
           </g>
         </g>
@@ -923,8 +923,8 @@ export default function BR() {
           y2="5.74744"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFC600" />
-          <stop offset="1" stop-color="#FFDE42" />
+          <stop stopColor="#FFC600" />
+          <stop offset="1" stopColor="#FFDE42" />
         </linearGradient>
         <clipPath id="clip0_5_1616">
           <rect
