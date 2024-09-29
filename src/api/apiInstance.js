@@ -1,25 +1,19 @@
 import axios from "axios";
-import { authHeader } from "../helpers/auth-header";
 
-export function callAPI(options = {}) {
-  options = options ?? {};
-  let baseURL = options.env
-    ? process.env[options.env]
-    : process.env.REACT_APP_BACKEND_API;
+const baseURL = process.env.REACT_APP_API_URL;
 
-  const callAPI = axios.create({
-    baseURL: baseURL,
-    headers: {
-      ...authHeader(options.multipart),
-    },
-  });
+export const callAPI = axios.create({
+  baseURL: baseURL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-  callAPI.interceptors.response.use(
-    (response) => response,
-    (error) => {
-      return Promise.reject(error);
-    }
-  );
-
-  return callAPI;
-}
+callAPI.interceptors.response.use(
+  (response) => {
+    return response.data;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
