@@ -1,4 +1,5 @@
 import SectionTitle from "./SectionTitle";
+import ToolTip from "../../molecules/ToolTip";
 
 //
 import Nav from "./Nav";
@@ -18,13 +19,14 @@ export default function SideMenuNavs({ minimize }) {
 
           <div className="flex flex-col gap-2 px-[14px]">
             {items.map(({ Icon, title, link }) => (
-              <Nav
-                key={title}
-                title={title}
-                link={link}
-                Icon={Icon}
-                minimize={minimize}
-              />
+              <ToolTip text={title} key={title}>
+                <Nav
+                  title={title}
+                  link={link}
+                  Icon={Icon}
+                  minimize={minimize}
+                />
+              </ToolTip>
             ))}
           </div>
         </div>

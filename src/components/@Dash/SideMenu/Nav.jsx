@@ -22,7 +22,7 @@ function Nav({ title, link, Icon, minimize }) {
     >
       {({ isActive }) => (
         <>
-          {<Icon isActive={isActive} />}
+          <Icon isActive={isActive} />
           {!minimize && title}
         </>
       )}
