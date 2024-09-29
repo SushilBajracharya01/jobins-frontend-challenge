@@ -124,33 +124,33 @@ export const ORDERS = [
 export const TABLE_NAV_ITEMS = [
   {
     label: "All Orders",
-    value: "all-orders",
+    value: "All",
   },
   {
     label: "Completed",
-    value: "completed",
+    value: "Completed",
   },
   {
     label: "Canceled",
-    value: "canceled",
+    value: "Canceled",
   },
 ];
 
 export const PRODUCT_STATUS = [
   {
     label: "All",
-    value: "all",
+    value: "All",
   },
   {
     label: "Pending",
-    value: "pending",
+    value: "Pending",
   },
   {
     label: "Completed",
-    value: "completed",
+    value: "Completed",
   },
   {
     label: "Canceled",
-    value: "canceled",
+    value: "Canceled",
   },
 ];

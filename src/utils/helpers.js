@@ -1,3 +1,8 @@
+import format from "date-fns/format";
+import isAfter from "date-fns/isAfter";
+import isBefore from "date-fns/isBefore";
+import isSameDay from "date-fns/isSameDay";
+
 export function formatNumber(value) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -25,4 +30,27 @@ export function slugToTitle(slug) {
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+}
+
+export function getParams(queryString) {
+  let params = {};
+  let query = queryString.split("?")[1];
+
+  query.split("&").forEach((pair) => {
+    let [key, value] = pair.split("=");
+    params[key] = value;
+  });
+
+  return params;
+}
+
+export function getFormatedDate(date) {
+  return format(date, "yyyy-MM-dd");
+}
+
+export function isAfterOrSameDay(date1, date2) {
+  return isAfter(date1, date2) || isSameDay(date1, date2);
+}
+export function isBeforeOrSameDay(date1, date2) {
+  return isBefore(date1, date2) || isSameDay(date1, date2);
 }

@@ -12,41 +12,65 @@ import SelectUI from "../molecules/SelectUI";
 import TableNavItem from "../atoms/TableNavItem";
 
 //
-import { ORDERS, TABLE_NAV_ITEMS, PRODUCT_STATUS } from "./_data";
-import { formatNumber, getStatusClass } from "../../utils/helpers";
+import { TABLE_NAV_ITEMS, PRODUCT_STATUS } from "./_data";
+import {
+  formatNumber,
+  getFormatedDate,
+  getStatusClass,
+} from "../../utils/helpers";
 
 //
 import SearchIcon from "../../assets/svgs/SearchIcon";
 import DateRangeInput from "../molecules/DateRangeInput";
-import axios from "axios";
-import { callAPI } from "../../api/apiInstance";
+
+//
 import { fetchOrders } from "../../api/mockAPI";
 
 const initialState = {
-  status: "all",
+  status: "All",
   search: "",
   date: {
-    from: "",
-    to: "",
+    from: null,
+    to: null,
   },
 };
 /**
  *
  */
 export default function PersonalDash() {
-  const [activeTab, setActiveTab] = useState("all-orders");
-  const [filter, setFilter] = useState(initialState);
+  const [activeTab, setActiveTab] = useState("All");
+  const [filters, setFilters] = useState(initialState);
 
   const [data, setData] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
+  const [isTableLoading, setIsTableLoading] = useState(false);
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 10,
+  });
 
   useEffect(() => {
     async function handleFetchOrders() {
-      console.log(await fetchOrders());
+      try {
+        setIsTableLoading(true);
+        const response = await fetchOrders({
+          offset: `${pagination.pageIndex * pagination.pageSize}`,
+          limit: (+pagination.pageIndex + 1) * pagination.pageSize,
+          status: filters.status,
+          search: filters.search,
+          from: filters.date.from ? getFormatedDate(filters.date.from) : null,
+          to: filters.date.to ? getFormatedDate(filters.date.to) : null,
+        });
+        setData(response.results);
+        setTotalCount(response.count);
+        setIsTableLoading(false);
+      } catch (error) {
+        console.log(error, "error");
+        setIsTableLoading(false);
+      }
     }
     handleFetchOrders();
-  }, [filter]);
-
-  console.log(data, "data");
+  }, [filters, activeTab, pagination]);
 
   const OrderColumn = useMemo(
     () => [
@@ -105,8 +129,49 @@ export default function PersonalDash() {
     []
   );
 
-  const handleTabNavClick = (value) => setActiveTab(value);
+  const handleTabNavClick = (value) => {
+    setActiveTab(value);
+    setFilters({
+      ...filters,
+      status: value,
+    });
+  };
 
+  const handleOnStatusChange = (event) => {
+    let value = event.target.value;
+
+    if (["All", "Pending"].includes(value)) {
+      setActiveTab("All");
+    } else {
+      setActiveTab(value);
+    }
+
+    setFilters({
+      ...filters,
+      status: value,
+    });
+  };
+
+  const onDateChange = (item) => {
+    setFilters({
+      ...filters,
+      date: {
+        ...filters.date,
+        from: item.selection.startDate,
+        to: item.selection.endDate,
+      },
+    });
+  };
+
+  const handleOnDateClearClick = () => {
+    setFilters({
+      ...filters,
+      date: {
+        from: null,
+        to: null,
+      },
+    });
+  };
   return (
     <>
       <DashCard className={"pt-6 px-10"}>
@@ -125,18 +190,30 @@ export default function PersonalDash() {
         </div>
       </DashCard>
 
-      <section className="flex gap-4 justify-between">
-        <div className="flex gap-4">
-          <div className="rounded-[6px] bg-white px-4 py-2 text-gray-300 font-medium text-[15px] flex gap-2">
+      <section className="flex gap-4 justify-between flex-col flex-wrap md:flex-row">
+        <div className="flex gap-4 flex-col flex-wrap md:flex-row">
+          <div className="rounded-[6px] bg-white px-4 py-2 text-gray-300 font-medium text-[15px] flex justify-start items-center gap-2">
             Status:
-            <SelectUI options={PRODUCT_STATUS} value={filter.status} />
+            <SelectUI
+              name="status"
+              options={PRODUCT_STATUS}
+              value={filters.status}
+              onChange={handleOnStatusChange}
+            />
           </div>
 
           <div className="relative">
             <input
               type="text"
               placeholder="Search..."
-              className="rounded-[6px] bg-white pl-4 pr-8 py-2 text-gray-300 font-medium text-[15px]"
+              className="rounded-[6px] bg-white pl-4 pr-8 py-2 text-gray-300 font-medium text-[15px] w-full"
+              value={filters.search}
+              onChange={(event) =>
+                setFilters({
+                  ...filters,
+                  search: event.target.value,
+                })
+              }
             />
             <SearchIcon className="absolute top-2.5 right-2" />
           </div>
@@ -144,13 +221,26 @@ export default function PersonalDash() {
 
         <div>
           <div className="rounded-[6px] bg-white px-4 py-2">
-            <DateRangeInput />
+            <DateRangeInput
+              from={filters.date.from}
+              to={filters.date.to}
+              onChange={onDateChange}
+              handleOnClearClick={handleOnDateClearClick}
+            />
           </div>
         </div>
       </section>
 
       <DashCard>
-        <TableUI data={ORDERS} columns={OrderColumn} />
+        <TableUI
+          data={data}
+          columns={OrderColumn}
+          pagination={pagination}
+          setPagination={setPagination}
+          totalCount={totalCount}
+          loading={isTableLoading}
+          noItemMessage={"No any orders"}
+        />
       </DashCard>
     </>
   );
