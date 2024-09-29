@@ -107,7 +107,7 @@ export default function TableUI({
                       className="px-5 py-[18px] text-[15px] text-gray-600"
                     >
                       <span className="animate-pulse">
-                        <span class="h-4 bg-gray-200 rounded-full w-full block"></span>
+                        <span className="h-4 bg-gray-200 rounded-full w-full block"></span>
                       </span>
                     </td>
                   ))}

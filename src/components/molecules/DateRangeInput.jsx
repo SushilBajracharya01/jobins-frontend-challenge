@@ -1,9 +1,9 @@
+import format from "date-fns/format";
 import { DateRange } from "react-date-range";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 //
 import ChevronDown from "../../assets/svgs/ChevronDown";
-import format from "date-fns/format";
 
 /**
  *
