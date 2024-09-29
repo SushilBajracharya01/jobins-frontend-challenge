@@ -33,7 +33,7 @@ export default function DateRangeInput({
           return (
             <>
               {!(from && to) && (
-                <span className="text-gray-300 font-medium text-[15px] flex gap-2">
+                <span className="text-gray-300 font-medium text-xl flex gap-2">
                   Filter by date range <ChevronDown isColorRed={false} />
                 </span>
               )}

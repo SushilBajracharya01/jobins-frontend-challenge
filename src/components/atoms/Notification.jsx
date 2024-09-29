@@ -5,7 +5,7 @@ function Notification({ count }) {
   return (
     <div className="relative">
       <NotificationIcon />
-      <span className="absolute text-[13px] top-[-4px] right-[-6px] bg-red-500 text-white rounded-full px-1.5">
+      <span className="absolute text-xm top-[-4px] right-[-6px] bg-red-500 text-white rounded-full px-1.5">
         {count}
       </span>
     </div>

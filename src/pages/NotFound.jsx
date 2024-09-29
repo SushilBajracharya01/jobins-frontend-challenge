@@ -22,7 +22,7 @@ export default function NotFound() {
         <img src={SSImg} alt="screenshot" className="w-full h-full" />
       </div>
       <div className="absolute bg-white rounded-lg p-8 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 shadow-xl">
-        <h3 className="text-[15px] font-bold text-gray-600">
+        <h3 className="text-xl font-bold text-gray-600">
           Oops! Looks like this page is locked! 🔒
         </h3>
 

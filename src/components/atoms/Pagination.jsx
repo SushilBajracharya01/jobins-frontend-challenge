@@ -26,7 +26,7 @@ export default function Pagination({ pagination, totalCount, table }) {
   };
 
   return (
-    <div className="flex gap-[2px]">
+    <div className="flex gap-0.5">
       <PaginationBtn
         label={<ChevronLeft />}
         onClick={handleOnLeftClick}

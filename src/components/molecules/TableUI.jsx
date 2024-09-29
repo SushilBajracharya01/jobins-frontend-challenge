@@ -53,7 +53,7 @@ export default function TableUI({
                     })}
                   >
                     {header.isPlaceholder ? null : (
-                      <span className="px-5 text-gray-300 uppercase font-medium text-[13px]">
+                      <span className="px-5 text-gray-300 uppercase font-medium text-xm">
                         {flexRender(
                           header.column.columnDef.header,
                           header.getContext()
@@ -80,7 +80,7 @@ export default function TableUI({
                       <td
                         key={cell.id}
                         className={classNames(
-                          "px-5 py-[18px] text-[15px] text-gray-600",
+                          "px-5 py-[18px] text-xl text-gray-600",
                           {
                             "pl-9": i === 0,
                             "pr-9": i === visibleCells.length - 1,
@@ -104,7 +104,7 @@ export default function TableUI({
                   {columns.map((_, idx) => (
                     <td
                       key={idx}
-                      className="px-5 py-[18px] text-[15px] text-gray-600"
+                      className="px-5 py-[18px] text-xl text-gray-600"
                     >
                       <span className="animate-pulse">
                         <span className="h-4 bg-gray-200 rounded-full w-full block"></span>

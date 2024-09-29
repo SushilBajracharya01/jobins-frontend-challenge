@@ -195,7 +195,7 @@ export default function PersonalDash() {
 
       <section className="flex gap-4 justify-between flex-col flex-wrap md:flex-row">
         <div className="flex gap-4 flex-col flex-wrap md:flex-row">
-          <div className="rounded-[6px] bg-white px-4 py-2 text-gray-300 font-medium text-[15px] flex justify-start items-center gap-2">
+          <div className="rounded-[6px] bg-white px-4 py-2 text-gray-300 font-medium text-xl flex justify-start items-center gap-2">
             Status:
             <SelectUI
               name="status"
@@ -209,7 +209,7 @@ export default function PersonalDash() {
             <input
               type="text"
               placeholder="Search..."
-              className="rounded-[6px] bg-white pl-4 pr-8 py-2 text-gray-300 font-medium text-[15px] w-full"
+              className="rounded-[6px] bg-white pl-4 pr-8 py-2 text-gray-300 font-medium text-xl w-full"
               value={inputText}
               onChange={(event) => setInputText(event.target.value)}
             />

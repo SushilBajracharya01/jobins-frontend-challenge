@@ -23,7 +23,7 @@ export default function CountryStat({
 
         <div className="min-w-[83px]">
           {Value}
-          <div className="text-gray-300 text-[13px]">{countryName}</div>
+          <div className="text-gray-300 text-xm">{countryName}</div>
         </div>
       </div>
 

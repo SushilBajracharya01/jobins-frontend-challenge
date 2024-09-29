@@ -5,10 +5,16 @@ module.exports = {
     extend: {
       fontSize: {
         xs: "11px",
+        xm: "13px",
         xl: "15px",
         "2xl": "22px",
         "2.5xl": "24px",
         "3xl": "32px",
+      },
+      spacing: {
+        2.5: "15px",
+        3.2: "13px",
+        4.5: "30px",
       },
       colors: {
         gray: {
