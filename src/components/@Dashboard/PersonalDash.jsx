@@ -3,13 +3,14 @@ import format from "date-fns/format";
 import { useEffect, useMemo, useState } from "react";
 
 //
-import UserInfo from "./UserInfo";
-
-//
 import DashCard from "../atoms/DashCard";
 import TableUI from "../molecules/TableUI";
 import SelectUI from "../molecules/SelectUI";
 import TableNavItem from "../atoms/TableNavItem";
+import UserInfo from "./UserInfo";
+
+//
+import useDebounce from "../../hooks/useDebounce";
 
 //
 import { TABLE_NAV_ITEMS, PRODUCT_STATUS } from "./_data";
@@ -28,7 +29,6 @@ import { fetchOrders } from "../../api/mockAPI";
 
 const initialState = {
   status: "All",
-  search: "",
   date: {
     from: null,
     to: null,
@@ -40,6 +40,9 @@ const initialState = {
 export default function PersonalDash() {
   const [activeTab, setActiveTab] = useState("All");
   const [filters, setFilters] = useState(initialState);
+
+  const [inputText, setInputText] = useState("");
+  const debouncedSearchInput = useDebounce(inputText);
 
   const [data, setData] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -57,7 +60,7 @@ export default function PersonalDash() {
           offset: `${pagination.pageIndex * pagination.pageSize}`,
           limit: (+pagination.pageIndex + 1) * pagination.pageSize,
           status: filters.status,
-          search: filters.search,
+          search: debouncedSearchInput,
           from: filters.date.from ? getFormatedDate(filters.date.from) : null,
           to: filters.date.to ? getFormatedDate(filters.date.to) : null,
         });
@@ -70,7 +73,7 @@ export default function PersonalDash() {
       }
     }
     handleFetchOrders();
-  }, [filters, activeTab, pagination]);
+  }, [filters, debouncedSearchInput, activeTab, pagination]);
 
   const OrderColumn = useMemo(
     () => [
@@ -207,13 +210,8 @@ export default function PersonalDash() {
               type="text"
               placeholder="Search..."
               className="rounded-[6px] bg-white pl-4 pr-8 py-2 text-gray-300 font-medium text-[15px] w-full"
-              value={filters.search}
-              onChange={(event) =>
-                setFilters({
-                  ...filters,
-                  search: event.target.value,
-                })
-              }
+              value={inputText}
+              onChange={(event) => setInputText(event.target.value)}
             />
             <SearchIcon className="absolute top-2.5 right-2" />
           </div>
