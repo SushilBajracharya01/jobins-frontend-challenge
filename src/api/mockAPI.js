@@ -9,8 +9,8 @@ import {
 
 const mock = new MockAdapter(callAPI, { delayResponse: 600 });
 
-const usersUri = "/orders";
-const url = new RegExp(`${usersUri}*`);
+const ordersUri = "/orders";
+const url = new RegExp(`${ordersUri}*`);
 
 mock.onGet(url).reply(function (config) {
   const params = getParams(config.url); // offset: 0, limit: 10
@@ -60,3 +60,47 @@ export const fetchOrders = (filters) => {
 
   return callAPI.get(`/orders?${searchParams}`);
 };
+
+mock.onGet("/dash").reply(200, {
+  message: "Orders fetched successfully",
+  data: {
+    sales: {
+      total: "350000",
+      difference: "8560",
+      isPositive: true,
+    },
+    profit: {
+      total: "50000",
+      difference: "12%",
+      isPositive: true,
+    },
+    countryStats: [
+      {
+        id: "US",
+        countryName: "United States",
+        isPositive: true,
+        percent: 25.8,
+        value: 30000,
+      },
+      {
+        id: "BR",
+        countryName: "Brazil",
+        isPositive: false,
+        percent: 16.2,
+        value: 26000,
+      },
+      {
+        id: "AU",
+        countryName: "Australia",
+        isPositive: false,
+        percent: 11.9,
+        value: 17000,
+      },
+    ],
+  },
+});
+export const fetchDashInfo = () => {
+  return callAPI.get("/dash");
+};
+
+// fetch userInfo data

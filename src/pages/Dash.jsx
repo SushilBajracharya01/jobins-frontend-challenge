@@ -8,11 +8,31 @@ import AvatarIcon from "../assets/svgs/AvatarIcon";
 import TotalProfit from "../components/@Dashboard/TotalProfit";
 import CountryStats from "../components/@Dashboard/CountryStats";
 import PersonalDash from "../components/@Dashboard/PersonalDash";
+import { useEffect, useState } from "react";
+import { fetchDashInfo } from "../api/mockAPI";
 
 /**
  *
  */
 export default function Dash() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    async function handleFetchDashData() {
+      try {
+        setIsLoading(true);
+        const response = await fetchDashInfo();
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error, "error");
+        setIsLoading(false);
+      }
+    }
+    handleFetchDashData();
+  }, []);
+
   return (
     <div>
       <div className="flex justify-between py-3">
@@ -26,11 +46,11 @@ export default function Dash() {
 
       <div className="space-y-4">
         <section className="flex gap-3 flex-wrap">
-          <TotalSales />
+          <TotalSales sales={data?.sales} isLoading={isLoading} />
 
-          <TotalProfit />
+          <TotalProfit profit={data?.profit} isLoading={isLoading} />
 
-          <CountryStats />
+          <CountryStats data={data?.countryStats} isLoading={isLoading} />
         </section>
 
         <PersonalDash />

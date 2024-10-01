@@ -54,3 +54,15 @@ export function isAfterOrSameDay(date1, date2) {
 export function isBeforeOrSameDay(date1, date2) {
   return isBefore(date1, date2) || isSameDay(date1, date2);
 }
+
+export function formatNumberWithSuffix(num) {
+  if (num >= 1e9) {
+    return { number: (num / 1e9).toFixed(2).replace(/\.00$/, ""), suffix: "B" };
+  } else if (num >= 1e6) {
+    return { number: (num / 1e6).toFixed(2).replace(/\.00$/, ""), suffix: "M" };
+  } else if (num >= 1e3) {
+    return { number: (num / 1e3).toFixed(2).replace(/\.00$/, ""), suffix: "K" };
+  } else {
+    return { number: num, suffix: "" };
+  }
+}

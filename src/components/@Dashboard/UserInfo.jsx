@@ -7,6 +7,7 @@ import ValueLabelPair from "../atoms/ValueLabelPair";
  *
  */
 export default function UserInfo() {
+  // TODO: fetch API here for userInfo
   return (
     <section className="flex flex-col lg:flex-row gap-4">
       <div className="flex gap-4 items-center justify-start flex-1 flex-col lg:flex-row">
