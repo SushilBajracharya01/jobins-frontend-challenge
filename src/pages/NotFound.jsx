@@ -1,9 +1,17 @@
 import { Link, useLocation } from "react-router-dom";
-import SSImg from "../assets/images/ss.png";
-import AvatarIcon from "../assets/svgs/AvatarIcon";
-import Notification from "../components/atoms/Notification";
+
+//
 import PageTitle from "../components/atoms/PageTitle";
+import Notification from "../components/atoms/Notification";
+
+//
+import SSImg from "../assets/images/ss.png";
 import { slugToTitle } from "../utils/helpers";
+import AvatarIcon from "../assets/svgs/AvatarIcon";
+
+/**
+ *
+ */
 export default function NotFound() {
   const location = useLocation();
 
@@ -14,7 +22,7 @@ export default function NotFound() {
         <div className="flex justify-between py-3">
           <PageTitle>{slugToTitle(pathname)}</PageTitle>
           <div className="flex items-center gap-6">
-            <Notification count={4} />
+            <Notification />
             <AvatarIcon />
           </div>
         </div>

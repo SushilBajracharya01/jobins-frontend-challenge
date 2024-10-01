@@ -64,6 +64,7 @@ export const fetchOrders = (filters) => {
 mock.onGet("/dash").reply(200, {
   message: "Orders fetched successfully",
   data: {
+    notifications: 4,
     sales: {
       total: "350000",
       difference: "8560",
@@ -104,3 +105,20 @@ export const fetchDashInfo = () => {
 };
 
 // fetch userInfo data
+mock.onGet("/user-info").reply(200, {
+  message: "User info fetched successfully",
+  data: {
+    fullname: "Robert Fox",
+    email: "robert@gmail.com",
+    contact: "(201) 555-0124",
+    dob: "01-01-1985",
+    memberSince: "03-03-2023",
+    shippingAddress: "3517 W. Gray St. Utica, Pennsylvania 57867",
+    totalOrders: 150,
+    totalCompleted: 140,
+    canceled: 10,
+  },
+});
+export const fetchUserInfo = () => {
+  return callAPI.get("/user-info");
+};
